@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Редактор сохранений RoR2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Экран загрузки -->
+<section id="start" class="start">
+  <div class="start-box">
+    <h1>Редактор сохранений<br><span>Risk of Rain 2</span></h1>
+    <p class="lead">Открывай и закрывай персонажей, навыки, скины, предметы, артефакты, логи и достижения. Список взят прямо из игры версии <b id="gameVersion"></b>, вместе со всеми DLC.</p>
+
+    <div id="profiles" class="profiles" hidden></div>
+
+    <div id="drop" class="drop" tabindex="0">
+      <div class="drop-title">Перетащи сюда файл профиля</div>
+      <div class="drop-sub">или нажми, чтобы выбрать</div>
+      <input id="fileInput" type="file" accept=".xml" hidden>
+    </div>
+
+    <div class="path">
+      <div class="path-label">Где лежит файл</div>
+      <code id="pathText">C:\Program Files (x86)\Steam\userdata\&lt;твой ID Steam&gt;\632360\remote\UserProfiles</code>
+      <button class="btn ghost small" id="copyPath">Скопировать путь</button>
+    </div>
+
+    <ol class="steps">
+      <li>Закрой игру. Если она открыта, при выходе перезапишет файл своей версией.</li>
+      <li>Выбери профиль: файл <b>.xml</b> из папки выше.</li>
+      <li>Отметь, что открыть и что закрыть, и нажми «Сохранить».</li>
+    </ol>
+    <p id="startError" class="error" hidden></p>
+  </div>
+</section>
+
+<!-- Редактор -->
+<div id="app" class="app" hidden>
+  <aside class="side">
+    <div class="profile">
+      <div class="profile-name" id="profileName"></div>
+      <div class="profile-file" id="profileFile"></div>
+    </div>
+    <nav id="nav" class="nav"></nav>
+    <div class="side-actions">
+      <div class="dirty" id="dirtyNote" hidden>Есть несохранённые изменения</div>
+      <button class="btn primary" id="saveBtn">Сохранить</button>
+      <div class="row2">
+        <button class="btn ghost small" id="undoBtn" disabled>Отменить</button>
+        <button class="btn ghost small" id="downloadBtn">Скачать копию</button>
+      </div>
+      <button class="btn ghost small" id="closeFileBtn">Другой файл</button>
+      <div class="lang">
+        <button data-lang="ru" class="on">RU</button><button data-lang="en">EN</button>
+      </div>
+    </div>
+  </aside>
+  <main id="main" class="main"></main>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="data/game-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
