@@ -62,10 +62,7 @@ code { font-family: ui-monospace, Consolas, monospace; }
   display: grid;
   place-items: center;
   padding: 40px 16px;
-  background:
-    radial-gradient(900px 500px at 80% -10%, #2a2340 0%, transparent 60%),
-    radial-gradient(700px 400px at 0% 110%, #1d2e2a 0%, transparent 60%),
-    var(--bg);
+  background: var(--bg);
 }
 .start-box { width: 100%; max-width: 640px; }
 .start h1 { font-size: 40px; line-height: 1.1; margin: 0 0 16px; font-weight: 700; }
